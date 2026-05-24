@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Social Chatter | Feed</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark">♥</span>
+      <h1>Social Chatter</h1>
+    </div>
+    <div class="header-search">
+      <input type="search" placeholder="Search photos, memories, matches">
+    </div>
+    <nav>
+      <a href="profile.html">Profile</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <main class="page-layout">
+    <section class="feed-column">
+      <section class="panel post-panel">
+        <div class="post-panel-header">
+          <span>Share</span>
+          <strong>Write a new love note</strong>
+        </div>
+        <form id="postForm" class="post-form">
+          <label class="field">
+            <span>Message</span>
+            <textarea id="postContent" placeholder="Write something lovely..."></textarea>
+          </label>
+          <label class="field">
+            <span>Add a photo</span>
+            <input type="file" id="postImage" accept="image/*">
+          </label>
+          <label class="field">
+            <span>Upload song</span>
+            <input type="file" id="postSongFile" accept="audio/*">
+          </label>
+          <button type="submit" class="primary-button">Post public update</button>
+        </form>
+      </section>
+
+      <section class="panel feed-panel">
+        <h3>Recent love notes</h3>
+        <div id="posts"></div>
+      </section>
+
+      <section class="panel feed-panel">
+        <h3>Public chat</h3>
+        <form id="publicForm" class="post-form">
+          <label class="field">
+            <span>Message</span>
+            <textarea id="publicContent" placeholder="Share a public story..."></textarea>
+          </label>
+          <label class="field">
+            <span>Add a photo</span>
+            <input type="file" id="publicImage" accept="image/*">
+          </label>
+          <label class="field">
+            <span>Upload song</span>
+            <input type="file" id="publicSongFile" accept="audio/*">
+          </label>
+          <button type="submit" class="primary-button">Send public message</button>
+        </form>
+        <div id="publicMessages"></div>
+      </section>
+
+      <section class="panel conversation-panel hidden" id="conversationPanel">
+        <h3 id="conversationTitle">Conversation</h3>
+        <div id="conversationMessages" class="conversation-messages"></div>
+        <div class="conversation-actions">
+          <textarea id="conversationReply" placeholder="Type a message..."></textarea>
+          <label class="field">
+            <span>Upload song</span>
+            <input type="file" id="replySongFile" accept="audio/*">
+          </label>
+          <button id="replyButton" class="primary-button">Send</button>
+        </div>
+      </section>
+    </section>
+
+    <aside class="sidebar">
+      <section class="panel sidebar-card">
+        <h3>Suggested matches</h3>
+        <div id="friendSuggestions" class="friend-grid"></div>
+      </section>
+
+      <section class="panel sidebar-card">
+        <h3>Messages</h3>
+        <div id="messageList" class="message-list"></div>
+        <button type="button" id="newMessageButton" class="secondary-button">New message</button>
+      </section>
+
+      <section class="panel sidebar-card hidden" id="messageComposerPanel">
+        <h3>New private message</h3>
+        <label class="field">
+          <span>Send to</span>
+          <select id="messageRecipient"></select>
+        </label>
+        <label class="field">
+          <span>Message</span>
+          <textarea id="messageContent" placeholder="Write your message..."></textarea>
+        </label>
+        <label class="field">
+          <span>Add a photo</span>
+          <input type="file" id="messageImage" accept="image/*">
+        </label>
+        <label class="field">
+          <span>Upload song</span>
+          <input type="file" id="messageSongFile" accept="audio/*">
+        </label>
+        <button type="button" id="sendMessageButton" class="primary-button">Send</button>
+      </section>
+
+      <section class="panel sidebar-card">
+        <h3>Active now</h3>
+        <p class="muted-text">Friends who are currently online will show an active badge.</p>
+      </section>
+
+      <section class="panel sidebar-card">
+        <h3>Active now</h3>
+        <p class="muted-text">Friends who are currently online will show an active badge.</p>
+      </section>
+    </aside>
+  </main>
+
+  <div id="reactionPicker" class="reaction-picker hidden" aria-hidden="true">
+    <button type="button" data-emoji="❤️">❤️</button>
+    <button type="button" data-emoji="😄">😄</button>
+    <button type="button" data-emoji="🔥">🔥</button>
+    <button type="button" data-emoji="😂">😂</button>
+    <button type="button" data-emoji="😍">😍</button>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

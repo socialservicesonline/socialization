@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Social Chatter | Log In</title>
+  <link rel="stylesheet" href="style.css">
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+</head>
+<body class="auth-page">
+  <main class="auth-layout">
+    <section class="auth-panel">
+      <div class="brand">
+        <span class="brand-mark">♥</span>
+        <div>
+          <h1>Social Chatter</h1>
+          <p>Your private place to share moments, memories, and sweet stories.</p>
+        </div>
+      </div>
+      <h2>Welcome back</h2>
+      <p class="section-copy">Sign in to view your feed, post photos, and keep your love alive.</p>
+      <form id="loginForm" class="form-grid">
+        <label class="field">
+          <span>Username</span>
+          <input type="text" id="loginUser" placeholder="Username" required>
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" id="loginPass" placeholder="Password" required>
+        </label>
+        <button type="submit" class="primary-button">Log In</button>
+      </form>
+      <p class="small-note">New here? <a href="signup.html">Create an account</a></p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+
+</body>
+</html>

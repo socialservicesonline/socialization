@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Social Chatter | Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+</head>
+<body class="auth-page">
+  <main class="auth-layout">
+    <section class="auth-panel">
+      <div class="brand">
+        <span class="brand-mark">♥</span>
+        <div>
+          <h1>Social Chatter</h1>
+          <p>Sign up to capture memories, post photos, and connect.</p>
+        </div>
+      </div>
+      <h2>Create your profile</h2>
+      <p class="section-copy">Use a username, choose a password, and get ready to share your story.</p>
+      <form id="signupForm" class="form-grid">
+        <label class="field">
+          <span>Username</span>
+          <input type="text" id="newUser" placeholder="Username" required>
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" id="newPass" placeholder="Password" required>
+        </label>
+        <button type="submit" class="primary-button">Sign Up</button>
+      </form>
+      <p class="small-note">Already have an account? <a href="index.html">Log in</a></p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

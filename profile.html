@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Social Chatter | Profile</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark">♥</span>
+      <h1>Social Chatter</h1>
+    </div>
+    <div class="header-search">
+      <input type="search" placeholder="Search memories, photos, profiles">
+    </div>
+    <nav>
+      <a href="feed.html">Feed</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <main class="page-layout profile-layout">
+    <section class="profile-column">
+      <section class="profile-summary panel">
+        <div class="profile-top">
+          <div class="avatar-wrapper">
+            <img src="avatar.png" alt="Profile Picture" class="avatar">
+          </div>
+          <div class="profile-meta">
+            <h2 id="profileName"></h2>
+            <p>Your romance profile for shared memories and connections.</p>
+          </div>
+        </div>
+        <div class="avatar-actions">
+          <button type="button" id="editAvatarButton" class="secondary-button">Upload photo</button>
+          <button type="button" id="resetAvatarButton" class="secondary-button">Reset photo</button>
+          <input type="file" id="avatarInput" accept="image/*" hidden>
+        </div>
+        <div class="status-panel">
+          <div class="status-row">
+            <div class="status-badge" id="statusIndicator"></div>
+            <div>
+              <strong id="statusState">Status</strong>
+              <p id="statusText">Set a status message to let friends know how you are feeling.</p>
+            </div>
+          </div>
+          <div class="status-actions">
+            <button id="toggleActiveButton" class="secondary-button">Toggle active</button>
+            <button id="editStatusButton" class="secondary-button">Update status</button>
+          </div>
+          <div class="status-editor hidden" id="statusEditor">
+            <label class="field">
+              <span>New status</span>
+              <textarea id="statusInput" placeholder="I am feeling lovely..."></textarea>
+            </label>
+            <button id="saveStatusButton" class="primary-button">Save status</button>
+          </div>
+        </div>
+        <div class="profile-stats">
+          <div>
+            <span id="followerCount">0</span>
+            <small>Matches</small>
+          </div>
+          <div>
+            <span id="followingCount">0</span>
+            <small>Connections</small>
+          </div>
+          <div>
+            <span id="postCount">0</span>
+            <small>Love notes</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel about-card">
+        <h3>About</h3>
+        <p id="bio">This is my bio.</p>
+      </section>
+    </section>
+
+    <aside class="sidebar">
+      <section class="panel sidebar-card">
+        <h3>My matches</h3>
+        <div id="friendList" class="friend-grid"></div>
+      </section>
+      <section class="panel sidebar-card">
+        <h3>Suggested matches</h3>
+        <div id="friendSuggestions" class="friend-grid"></div>
+      </section>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
